@@ -4,6 +4,7 @@
     margin: 0;
 }
 body {
+  position: relative;
     background-color: #cdcdcd;
     text-align: center;
     min-height: 100vh;
@@ -19,6 +20,9 @@ button {
     border: transparent;
     border-radius: 7px;
     transition: ease all 400ms;
+    line-height: 32px;
+    align-items: center;
+    min-width: 40%;
 }
 button:hover{
     background-color: #cecece;
@@ -30,11 +34,14 @@ code{
     padding-top: 20px;
 }
 #output{
-    /* font-family: serif; */
     min-width: 70%;
     padding-top: 0px;
-    line-height: 32px;
-    align-items: center;
+
+}
+@media screen and (max-width: 560px){
+  #output code{
+    font-size: 12px;
+  }
 }
 i {
     cursor: pointer;
@@ -46,18 +53,36 @@ input {
     line-height: 40px;
 }
 
+
 #snackbar {
-    visibility: visible;
+    visibility: hidden;
     color: #fff;
-    background-color: #333;
+    background-color: rgba(51, 51, 51, .6);
     min-width: 400px;
-    text-align: center;
-    margin-left: -125px;
-    border-radius: 2px;
-    padding: 16px;
-    text-align: center;
+    border-radius: 5px;
+    height: 44px;
+    line-height: 44px;
     left: 50%;
-    bottom: 30px;
+    bottom: 10%;
+    transform:translate(-50%);
     z-index: 1;
-    position: fixed;
+    position: fixed; 
+    pointer-events: none;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    animation: fadein .5s, fadeout .5s 2.6s;
+    animation-direction: alternate;
+  } 
+  /* Animations for fading in and out */
+
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 10%; opacity: 1;}
+  }
+
+  @keyframes fadeout {
+    from {bottom: 10%; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
   }

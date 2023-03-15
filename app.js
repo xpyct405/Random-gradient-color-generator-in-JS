@@ -64,3 +64,16 @@ function copyFunction() {
 
 
 
+// Уведомление об успешном копировании
+function showSnackBar() {
+    let snackbar = document.querySelector("#snackbar");
+  
+    // Тут будем добавлять, удалять класс, при выполнение условии ниже
+    snackbar.className = "show";
+  
+    setTimeout(()=>{ 
+        snackbar.className = snackbar.className.replace("show", "");
+     }, 3000);
+
+  }
+
