@@ -49,19 +49,19 @@ angle.addEventListener('click', copyFunction)
 // Копируем содержимое кнопки и добавляем background: ДЛЯ copyButton
 function copyFunctionForBtn() {
     console.log(this);
+    console.log(this.textContent);
     navigator.clipboard.writeText(`background: ${this.textContent}`)
-    console.log(`background: ${this.textContent}`);
     showSnackBar()
 }
 
 // Копируем последнего ребенка (<i></i>) элемента по которое мы кликаем ДЛЯ firstColor, secondColor, angle
 function copyFunction() {
     console.log(this);
-    navigator.clipboard.writeText(this.lastChild.textContent)
+    console.log(this.lastChild);
     console.log(this.lastChild.textContent);
+    navigator.clipboard.writeText(this.lastChild.textContent)
     showSnackBar()
 }
-
 
 
 // Уведомление об успешном копировании
@@ -71,6 +71,7 @@ function showSnackBar() {
     // Тут будем добавлять, удалять класс, при выполнение условии ниже
     snackbar.className = "show";
   
+    // Функция ниже убирает класс "show" у snackbar по истечению 3000ms
     setTimeout(()=>{ 
         snackbar.className = snackbar.className.replace("show", "");
      }, 3000);
