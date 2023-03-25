@@ -50,7 +50,7 @@ angle.addEventListener('click', copyFunction)
 function copyFunctionForBtn() {
     console.log(this);
     console.log(this.textContent);
-    navigator.clipboard.writeText(`background: ${this.textContent}`)
+    navigator.clipboard.writeText(`background:${this.textContent}`)
     showSnackBar()
 }
 
